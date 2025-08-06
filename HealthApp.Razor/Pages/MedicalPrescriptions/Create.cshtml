@@ -1,0 +1,38 @@
+﻿@page
+@model HealthApp.Razor.Pages.MedicalPrescriptions.CreateModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<h1>Create Medical Prescription</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="MedicalPrescription.PatientName"></label>
+        <input asp-for="MedicalPrescription.PatientName" class="form-control" />
+        <span asp-validation-for="MedicalPrescription.PatientName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="MedicalPrescription.Medication"></label>
+        <input asp-for="MedicalPrescription.Medication" class="form-control" />
+        <span asp-validation-for="MedicalPrescription.Medication" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="MedicalPrescription.Dosage"></label>
+        <input asp-for="MedicalPrescription.Dosage" class="form-control" />
+        <span asp-validation-for="MedicalPrescription.Dosage" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="MedicalPrescription.DatePrescribed"></label>
+        <input asp-for="MedicalPrescription.DatePrescribed" type="date" class="form-control" />
+        <span asp-validation-for="MedicalPrescription.DatePrescribed" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

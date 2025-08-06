@@ -1,0 +1,51 @@
+﻿@page
+@model HealthApp.Razor.Pages.Doctor.ManageDoctorAppointmentsModel
+@{
+    ViewData["Title"] = "Manage Appointments";
+}
+
+<h2>Manage Appointments</h2>
+
+<p><strong>Doctors:</strong> Can log in, view their schedules, approve or reject appointments.</p>
+
+@if (Model.Appointments.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Patient</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var appointment in Model.Appointments)
+        {
+            <tr>
+                <td>@appointment.PatientEmail</td>
+                <td>@appointment.Date.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>@appointment.Status</td>
+                <td>
+                    @if (appointment.Status == "Pending")
+                    {
+                        <form method="post">
+                            <input type="hidden" name="AppointmentId" value="@appointment.Id" />
+                            <button type="submit" name="action" value="Approve" class="btn btn-success btn-sm">Approve</button>
+                            <button type="submit" name="action" value="Reject" class="btn btn-danger btn-sm">Reject</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <span>-</span>
+                    }
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No appointments found.</p>
+}

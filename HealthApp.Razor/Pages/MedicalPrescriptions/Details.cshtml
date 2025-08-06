@@ -1,0 +1,13 @@
+﻿@page
+@model HealthApp.Razor.Pages.MedicalPrescriptions.DetailsModel
+
+<h1>Prescription Details</h1>
+
+<div>
+    <p><strong>Patient:</strong> @Model.MedicalPrescription.PatientName</p>
+    <p><strong>Medication:</strong> @Model.MedicalPrescription.Medication</p>
+    <p><strong>Dosage:</strong> @Model.MedicalPrescription.Dosage</p>
+    <p><strong>Date:</strong> @Model.MedicalPrescription.DatePrescribed.ToShortDateString()</p>
+</div>
+
+<a asp-page="Index">Back to List</a>

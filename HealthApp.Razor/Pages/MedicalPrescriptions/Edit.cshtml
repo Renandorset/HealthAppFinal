@@ -1,0 +1,25 @@
+﻿@page
+@model HealthApp.Razor.Pages.MedicalPrescriptions.EditModel
+
+<h1>Edit Medical Prescription</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="MedicalPrescription.Id" />
+    <div>
+        <label>Patient Name</label>
+        <input asp-for="MedicalPrescription.PatientName" class="form-control" />
+    </div>
+    <div>
+        <label>Medication</label>
+        <input asp-for="MedicalPrescription.Medication" class="form-control" />
+    </div>
+    <div>
+        <label>Dosage</label>
+        <input asp-for="MedicalPrescription.Dosage" class="form-control" />
+    </div>
+    <div>
+        <label>Date</label>
+        <input asp-for="MedicalPrescription.DatePrescribed" type="date" class="form-control" />
+    </div>
+    <button type="submit">Save</button>
+</form>

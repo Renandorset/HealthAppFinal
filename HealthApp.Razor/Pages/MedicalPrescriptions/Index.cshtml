@@ -1,0 +1,36 @@
+﻿@page
+@model HealthApp.Razor.Pages.MedicalPrescriptions.IndexModel
+
+<h1>Medical Prescriptions</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Patient</th>
+            <th>Medication</th>
+            <th>Dosage</th>
+            <th>Date</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.MedicalPrescriptions)
+        {
+            <tr>
+                <td>@item.PatientName</td>
+                <td>@item.Medication</td>
+                <td>@item.Dosage</td>
+                <td>@item.DatePrescribed.ToShortDateString()</td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

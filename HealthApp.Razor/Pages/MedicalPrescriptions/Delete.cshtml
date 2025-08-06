@@ -1,0 +1,14 @@
+﻿@page
+@model HealthApp.Razor.Pages.MedicalPrescriptions.DeleteModel
+
+<h1>Delete Medical Prescription</h1>
+
+<div>
+    <p>Are you sure you want to delete this prescription for <strong>@Model.MedicalPrescription.PatientName</strong>?</p>
+</div>
+
+<form method="post">
+    <input type="hidden" asp-for="MedicalPrescription.Id" />
+    <button type="submit">Yes, Delete</button>
+    <a asp-page="Index">Cancel</a>
+</form>

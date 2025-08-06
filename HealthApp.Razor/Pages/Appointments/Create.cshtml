@@ -1,0 +1,54 @@
+﻿ @page
+@model HealthApp.Razor.Pages.Appointments.CreateModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<h2>Create Appointment</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Appointment.PatientName" class="control-label"></label>
+        <input asp-for="Appointment.PatientName" class="form-control" />
+        <span asp-validation-for="Appointment.PatientName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Appointment.PatientEmail" class="control-label"></label>
+        <input asp-for="Appointment.PatientEmail" class="form-control" />
+        <span asp-validation-for="Appointment.PatientEmail" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Appointment.DoctorEmail" class="control-label"></label>
+        <input asp-for="Appointment.DoctorEmail" class="form-control" />
+        <span asp-validation-for="Appointment.DoctorEmail" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Appointment.Date" class="control-label"></label>
+        <input asp-for="Appointment.Date" class="form-control" type="datetime-local" />
+        <span asp-validation-for="Appointment.Date" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Appointment.Notes" class="control-label"></label>
+        <input asp-for="Appointment.Notes" class="form-control" />
+        <span asp-validation-for="Appointment.Notes" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Appointment.Status" class="control-label"></label>
+        <select asp-for="Appointment.Status" class="form-control">
+            <option value="Pending">Pending</option>
+            <option value="Approved">Approved</option>
+            <option value="Rejected">Rejected</option>
+        </select>
+        <span asp-validation-for="Appointment.Status" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button> |
+    <a asp-page="./Index">Back to List</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
