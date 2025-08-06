@@ -20,28 +20,28 @@
             </tr>
         </thead>
         <tbody>
-        @foreach (var appointment in Model.Appointments)
-        {
-            <tr>
-                <td>@appointment.PatientEmail</td>
-                <td>@appointment.Date.ToString("dd/MM/yyyy HH:mm")</td>
-                <td>@appointment.Status</td>
-                <td>
-                    @if (appointment.Status == "Pending")
-                    {
-                        <form method="post">
-                            <input type="hidden" name="AppointmentId" value="@appointment.Id" />
-                            <button type="submit" name="action" value="Approve" class="btn btn-success btn-sm">Approve</button>
-                            <button type="submit" name="action" value="Reject" class="btn btn-danger btn-sm">Reject</button>
-                        </form>
-                    }
-                    else
-                    {
-                        <span>-</span>
-                    }
-                </td>
-            </tr>
-        }
+            @foreach (var appointment in Model.Appointments)
+            {
+                <tr>
+                    <td>@appointment.PatientEmail</td>
+                    <td>@appointment.Date.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td>@appointment.Status</td>
+                    <td>
+                        @if (appointment.Status == "Pending")
+                        {
+                            <form method="post">
+                                <input type="hidden" name="AppointmentId" value="@appointment.Id" />
+                                <button type="submit" name="action" value="Approve" class="btn btn-success btn-sm">Approve</button>
+                                <button type="submit" name="action" value="Reject" class="btn btn-danger btn-sm">Reject</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <span>-</span>
+                        }
+                    </td>
+                </tr>
+            }
         </tbody>
     </table>
 }

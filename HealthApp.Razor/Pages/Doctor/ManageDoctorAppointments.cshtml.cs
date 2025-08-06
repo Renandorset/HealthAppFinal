@@ -7,7 +7,7 @@ using HealthApp.Razor.Data;
 
 namespace HealthApp.Razor.Pages.Doctor
 {
-    [Authorize(Roles = "Doctor")]
+    [Authorize(Roles = "Doctor,Admin")]
     public class ManageDoctorAppointmentsModel : PageModel
     {
         private readonly ApplicationDbContext _context;

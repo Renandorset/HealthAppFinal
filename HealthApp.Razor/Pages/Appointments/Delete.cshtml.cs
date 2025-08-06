@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace HealthApp.Razor.Pages.Appointments
 {
     [Authorize(Roles = "Patient,Admin")]
+
     public class DeleteModel : PageModel
     {
         private readonly ApplicationDbContext _context;
