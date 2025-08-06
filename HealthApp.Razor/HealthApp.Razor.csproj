@@ -6,6 +6,12 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<UserSecretsId>aspnet-HealthApp.Razor-f9a928ca-cdcb-405c-8b9e-0e7becea220c</UserSecretsId>
 	</PropertyGroup>
+	<ItemGroup>
+		<None Update="appsettings.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="9.0.7" />
@@ -21,5 +27,11 @@
 		<ProjectReference Include="..\HealthApp.Domain\HealthApp.Domain.csproj" />
 	</ItemGroup>
 
-</Project>
+	<!-- ✅ Adicionado para garantir que o appsettings.json seja copiado para o output -->
+	<ItemGroup>
+		<None Update="appsettings.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
 
+</Project>

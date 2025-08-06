@@ -1,6 +1,4 @@
-﻿// 1. Startup configuration (Program.cs ou Startup.cs depending on .NET version)
-
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using HealthApp.Razor.Data;
 
@@ -64,3 +62,10 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.MapRazorPages();
 app.Run();
+
+
+
+builder.WebHost.ConfigureKestrel(serverOptions =>
+{
+    serverOptions.ListenAnyIP(80);
+});
