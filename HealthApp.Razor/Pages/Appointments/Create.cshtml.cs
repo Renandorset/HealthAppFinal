@@ -7,8 +7,6 @@ using System.Threading.Tasks;
 namespace HealthApp.Razor.Pages.Appointments
 {
     [Authorize(Roles = "Patient,Admin")]
-
-
     public class CreateModel : PageModel
     {
         private readonly ApplicationDbContext _context;
@@ -28,6 +26,11 @@ namespace HealthApp.Razor.Pages.Appointments
                 return Forbid();
             }
 
+            // Preenche automaticamente o email do paciente
+            if (User.IsInRole("Patient"))
+            {
+                Appointment.PatientEmail = User.Identity?.Name;
+            }
 
             return Page();
         }
@@ -39,7 +42,7 @@ namespace HealthApp.Razor.Pages.Appointments
                 return Page();
             }
 
-            // Paciente não pode alterar email para outro
+            // Garante que pacientes não alterem o próprio e-mail
             if (User.IsInRole("Patient"))
             {
                 Appointment.PatientEmail = User.Identity?.Name ?? Appointment.PatientEmail;

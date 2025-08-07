@@ -14,7 +14,7 @@ namespace HealthApp.Razor.Data
 
             var faker = new Faker();    
 
-            for (int i = 0; i< 100; i++)
+            for (int i = 0; i< 1000; i++)
             {
                 patients.Add(new Patient
                 {

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Authorization;
 using HealthApp.Razor.Data;
-using HealthApp.Razor.Models;
+
 
 namespace HealthApp.Razor.Pages.MedicalPrescriptions
 {

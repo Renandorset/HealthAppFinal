@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
-using HealthApp.Razor.Models;
 using HealthApp.Razor.Data;
 
 namespace HealthApp.Razor.Pages.MedicalPrescriptions

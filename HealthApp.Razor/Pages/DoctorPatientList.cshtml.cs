@@ -20,7 +20,7 @@ namespace HealthApp.Razor.Pages
             _context = context;
         }
 
-        public IList<DoctorPatient> DoctorPatient { get;set; } = default!;
+        public IList<DoctorPatient> DoctorPatient { get; set; } = default!;
 
         public async Task OnGetAsync()
         {

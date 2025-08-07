@@ -14,29 +14,30 @@
     <thead>
         <tr>
             <th>
-               Doctor
+                Doctor
             </th>
             <th>
-              Patient
+                Patient
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.DoctorPatient) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Doctor.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Patient.Email)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.DoctorPatient)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Doctor.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Patient.Email)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

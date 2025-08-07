@@ -12,19 +12,19 @@
     }
 </ul>
 <table class="table">
-   <thead>
+    <thead>
         <tr><th>Id</th><th>Name</th><th>Last Name</th><th>Email</th></tr>
-   </thead>
-   <tbody>
-    @foreach (var patient in Model.Patients)
-    {
+    </thead>
+    <tbody>
+        @foreach (var patient in Model.Patients)
+        {
 
-        <tr>
-            <td>@patient.Id</td>
-            <td>@patient.FirstName</td>
+            <tr>
+                <td>@patient.Id</td>
+                <td>@patient.FirstName</td>
                 <td>@patient.LastName</td>
                 <td>@patient.Email</td>
-        </tr>
-    }
+            </tr>
+        }
     </tbody>
 </table>

@@ -7,7 +7,7 @@ using System.Security.Claims;
 
 namespace HealthApp.Razor.Pages
 {
-    [Authorize(Roles ="Admin")]
+    [Authorize(Roles = "Admin")]
     public class AdminModel : PageModel
     {
         public string UserId { get; set; }

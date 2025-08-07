@@ -1,0 +1,39 @@
+﻿@page
+@model HealthApp.Razor.Pages.Doctor.SearchModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<h2 class="mt-4 mb-3">Search Doctors</h2>
+
+<form method="get" class="form-inline mb-4">
+    <input asp-for="Query" class="form-control mr-2" placeholder="Enter name, specialty or location" />
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+@if (Model.Doctors.Any())
+{
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Name</th>
+                <th>Specialty</th>
+                <th>Location</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var doctor in Model.Doctors)
+            {
+                <tr>
+                    <td>@doctor.FullName</td>
+                    <td>@doctor.Specialty</td>
+                    <td>@doctor.Location</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-info">No doctors found.</div>
+}

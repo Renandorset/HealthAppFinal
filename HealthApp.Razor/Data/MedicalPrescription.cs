@@ -1,16 +1,30 @@
-﻿    using System;
-    using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
-
-// Models/MedicalPrescription.cs
-namespace HealthApp.Razor.Models
+namespace HealthApp.Razor.Data
 {
     public class MedicalPrescription
     {
         public int Id { get; set; }
-        public string PatientName { get; set; } = string.Empty;
-        public string Medication { get; set; } = string.Empty;
-        public string Dosage { get; set; } = string.Empty;
-        public DateTime DatePrescribed { get; set; }
+
+        [Required]
+        public string DoctorName { get; set; }
+
+        [Required]
+        public string PatientName { get; set; }
+
+        [Required]
+        public string Medication { get; set; }
+
+        [Required]
+        public string Dosage { get; set; }
+
+        [Required]
+        public string Instructions { get; set; }
+
+        [Required]
+        [DataType(DataType.Date)]
+        [Display(Name = "Date Prescribed")]
+        public DateTime DatePrescribed { get; set; } = DateTime.Now;
     }
 }

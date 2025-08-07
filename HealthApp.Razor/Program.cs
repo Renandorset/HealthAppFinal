@@ -4,7 +4,7 @@ using HealthApp.Razor.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 1. Policies
+// 1. Configure policies
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("PatientOrAdmin", policy =>
@@ -17,15 +17,21 @@ builder.Services.AddAuthorization(options =>
         policy.RequireRole("Admin"));
 });
 
-// 2. Razor page restrictions
+// 2. Razor Pages + apply policies
 builder.Services.AddRazorPages(options =>
 {
-    options.Conventions.AuthorizeFolder("/Appointments", "PatientOrAdmin");
+    // ⚠️ Ordem importa: exceção primeiro!
+    options.Conventions.AuthorizePage("/Doctor/Search", "PatientOrAdmin");
+
+    // Depois restringe a pasta Doctor
     options.Conventions.AuthorizeFolder("/Doctor", "DoctorOrAdmin");
+
+    // Outras pastas
+    options.Conventions.AuthorizeFolder("/Appointments", "PatientOrAdmin");
     options.Conventions.AuthorizeFolder("/Admin", "AdminOnly");
 });
 
-// 3. Identity and EF Core
+// 3. Configure EF Core and Identity
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
@@ -39,10 +45,10 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 .AddRoles<IdentityRole>()
 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-builder.Services.AddRazorPages();
-
+// 4. Build app
 var app = builder.Build();
 
+// 5. Middleware
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
@@ -53,19 +59,17 @@ else
     app.UseHsts();
 }
 
+// 6. Seed roles/users
 await SeedData.Initialize(app.Services);
 
+// 7. Request pipeline
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+
 app.UseAuthentication();
 app.UseAuthorization();
+
 app.MapRazorPages();
+
 app.Run();
-
-
-
-builder.WebHost.ConfigureKestrel(serverOptions =>
-{
-    serverOptions.ListenAnyIP(80);
-});

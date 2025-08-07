@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore; // <- necessário para EntityState e DbUpdateConcurrencyException
-using HealthApp.Razor.Models;
 using HealthApp.Razor.Data;
 
 namespace HealthApp.Razor.Pages.MedicalPrescriptions

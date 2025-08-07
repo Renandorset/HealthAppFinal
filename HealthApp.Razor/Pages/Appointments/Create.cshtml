@@ -7,9 +7,7 @@
 <form method="post">
     <div class="form-group">
         <label asp-for="Appointment.PatientName" class="control-label"></label>
-        <<input asp-for="Appointment.PatientName" class="form-control" />
-
-
+        <input asp-for="Appointment.PatientName" class="form-control" />
         <span asp-validation-for="Appointment.PatientName" class="text-danger"></span>
     </div>
 
@@ -17,6 +15,7 @@
         <label asp-for="Appointment.PatientEmail" class="control-label"></label>
         <input asp-for="Appointment.PatientEmail"
                class="form-control"
+               value="@Model.Appointment.PatientEmail"
                readonly="@(User.IsInRole("Patient") ? "readonly" : null)" />
         <span asp-validation-for="Appointment.PatientEmail" class="text-danger"></span>
     </div>

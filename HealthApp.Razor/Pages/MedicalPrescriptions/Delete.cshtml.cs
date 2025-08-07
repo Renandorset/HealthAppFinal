@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using HealthApp.Razor.Models;
 using HealthApp.Razor.Data;
 using Microsoft.AspNetCore.Authorization;
 

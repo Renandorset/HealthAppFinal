@@ -1,20 +1,54 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "HealthApp Dashboard";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold">Welcome to HealthApp</h1>
+        <p class="lead">Manage appointments, prescriptions, and connect with your doctor in one place.</p>
+    </div>
 
-    <p>
-        <a href="/Appointments" class="btn btn-primary">
-            Check Appointments
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 text-center">
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Appointments</h5>
+                    <p class="card-text">View and manage your upcoming consultations.</p>
+                    <a href="/Appointments" class="btn btn-primary w-100">Check Appointments</a>
+                </div>
+            </div>
+        </div>
 
-        </a>
-        <a href="/MedicalPrescriptions" class="btn btn-outline-primary">View Medical Prescription</a>
-        <a asp-page="/Doctor/ManageDoctorAppointments" class="btn btn-primary">Manage Appointments</a>
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Prescriptions</h5>
+                    <p class="card-text">Access your medical prescriptions quickly.</p>
+                    <a href="/MedicalPrescriptions" class="btn btn-outline-primary w-100">View Prescriptions</a>
+                </div>
+            </div>
+        </div>
 
-    </p>
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Doctor Appointments</h5>
+                    <p class="card-text">Doctors can manage their consultation schedules.</p>
+                    <a asp-page="/Doctor/ManageDoctorAppointments" class="btn btn-primary w-100">Manage Appointments</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Find a Doctor</h5>
+                    <p class="card-text">Search for specialists by location and specialty.</p>
+                    <a href="/Doctor/Search" class="btn btn-outline-primary w-100">Find a Doctor</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
