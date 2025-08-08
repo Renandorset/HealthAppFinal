@@ -13,7 +13,6 @@ This solution consists of the following projects:
 Core business logic and domain models  
 Contains:
 - Entities: `User`, `Doctor`, `Patient`, `Appointment`, `Prescription`, etc.
-- DTOs for data transfer
 - Business rules and constants
 
 ### 2. **HealthApp.Razor**
