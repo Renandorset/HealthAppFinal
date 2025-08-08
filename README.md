@@ -57,7 +57,6 @@ Unit test project for backend services and business logic
 ### 🔧 Backend
 - ASP.NET Core 9.0
 - Entity Framework Core
-- MediatR (CQRS)
 - AutoMapper
 - SQLite (dev) / SQL Server (prod)
 
